@@ -199,9 +199,14 @@ function Analyze(props: any) {
         }
         const airCraftDetails = await getAirCraftDetails(selectedFlight);
         if (airCraftDetails && !airCraftDetails.status) {
-          const airCrafts = [] as any;
-          for (let k in airCraftDetails) {
-            airCrafts.push(airCraftDetails[k]);
+          let airCrafts = [] as any;
+          // for (let k in airCraftDetails) {
+          //   airCrafts.push(airCraftDetails[k]);
+          // }
+          if (airCraftDetails.flightData) {
+            airCrafts = airCraftDetails.flightData;
+          } else {
+            airCrafts = [];
           }
           let lat = airCrafts[0].gps_lat;
           let long = airCrafts[0].gps_long;

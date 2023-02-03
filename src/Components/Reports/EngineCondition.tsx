@@ -15,17 +15,6 @@ const EngineCondition = (props: any) => {
   const [selectedAssetId, setSelectedAssetId] = useState('');
   const reportResponse = useSelector((state: any) => state.reportReducer);
 
-  // useEffect(() => {
-  //   const newData = [];
-  //   const { page, limit } = limitValues;
-  //   let start = (page - 1) * limit;
-  //   let end = page * limit - 1;
-  //   for (let i = start; i <= end; i++) {
-  //     newData.push(JSONDATA[i]);
-  //   }
-  //   updateReportsList(newData);
-  // }, []);
-
   const handlePageClick = (e: any) => {
     const newData = [];
     const currPage = parseInt(e.selected) + 1;

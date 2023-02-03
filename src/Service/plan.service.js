@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {
   IP,
-  PORT_3333,
+  PORT,
   PORT_8083,
   APP_SERVICE,
   LAYERS,
@@ -14,13 +14,13 @@ import {
 import REPORTDATA from '../store/reportSampleJson.json';
 
 const defaultContentType = 'application/json';
-const apiUrl_layer = IP + PORT_3333 + APP_SERVICE + LAYERS;
-const apiUrl_landmark = IP + PORT_3333 + APP_SERVICE + LANDMARKS;
-const apiUrl_users = IP + PORT_3333 + APP_SERVICE + USERS;
+const apiUrl_layer = IP + PORT + APP_SERVICE + LAYERS;
+const apiUrl_landmark = IP + PORT + APP_SERVICE + LANDMARKS;
+const apiUrl_users = IP + PORT + APP_SERVICE + USERS;
 //const apiUrl_notification = IP + PORT_8083 + APP_SERVICE + NOTIFICATION;
-const apiUrl_notification = IP + PORT_3333 + APP_SERVICE + NOTIFICATION;
-const apiUrl_assets = IP + PORT_3333 + APP_SERVICE + ASSETS;
-const apiUrl_geofence = IP + PORT_3333 + APP_SERVICE + GEOFENCE;
+const apiUrl_notification = IP + PORT + APP_SERVICE + NOTIFICATION;
+const apiUrl_assets = IP + PORT + APP_SERVICE + ASSETS;
+const apiUrl_geofence = IP + PORT + APP_SERVICE + GEOFENCE;
 
 const headers = { 'Content-Type': defaultContentType };
 

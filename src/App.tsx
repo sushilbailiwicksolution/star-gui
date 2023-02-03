@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import '../src/Assets/scss/styles.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-circular-progressbar/dist/styles.css';
 import UserLogin from './Components/login';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Dashboard from './Components/dashboard';
@@ -38,6 +39,10 @@ import NotificationEventSecurity from './Components/Plan/notification-event-secu
 import Geofences from './Components/Plan/geofences';
 import CreateGeofences from './Components/Plan/create-geoFences';
 import ViewGeofences from './Components/Plan/view-geoFences';
+import AssetViewDevicesComponent from './Components/View/asset-view-device';
+import AssetListComponent from './Components/View/asset-list';
+
+import EventsComponent from './Components/View/events';
 
 function App() {
   return (
@@ -78,6 +83,9 @@ function App() {
           <PrivateRoute exact path='/analyze' component={Analyze} />
           <PrivateRoute exact path='/plan' component={Plan} />
           <PrivateRoute exact path='/view' component={View} />
+          <PrivateRoute exact path='/view/assetList' component={AssetListComponent} />
+          <PrivateRoute exact path='/view/assetList/assetViewDevice' component={AssetViewDevicesComponent} />
+          <PrivateRoute exact path='/view/events' component={EventsComponent} />
           <PrivateRoute exact path='/map-layer' component={KMPMAP} />
           <PrivateRoute exact path='/overlay' component={OpenLayer} />
           <PrivateRoute exact path='/notification' component={Notification} />

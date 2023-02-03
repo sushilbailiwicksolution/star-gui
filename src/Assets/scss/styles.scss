@@ -410,6 +410,25 @@ button.custom-toast-menu {
     }
 }
 
+.event-style {
+    .select-dropdown {
+        margin-bottom: 1rem;
+        select.form-control {
+            font-size: 1.4rem;
+            height: 3.5rem;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid #43425d;
+            option {
+                color: $cl-black;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
 .pagingnation-list ul li {
     padding: 3px 10px;
     margin-left: 5px !important;
@@ -1380,4 +1399,31 @@ select.form-control.head-dropdown {
     right: 0;
     height: 70%;
     background-color: #383838 !important;
+}
+
+.textSelect a {
+    text-decoration: none;
+    color: #F38A00;
+}
+
+.textSelect a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #F38A00 !important;
+}
+
+.textSelect a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #CCCCCC !important;
+}
+
+.table-max-height {
+    max-height: 250px;
+}
+
+.progress-loader-circle {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
 }

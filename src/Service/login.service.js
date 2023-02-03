@@ -1,9 +1,8 @@
 import axios from 'axios';
+import { IP, PORT,APP_SERVICE, AUTHENTICATE } from '../Config/siteConfig';
 
 const defaultContentType = 'application/json';
-// const apiUrl = IP + PORT_3333 + APP_SERVICE + AUTHENTICATE;
-
-const apiUrl= process.env.REACT_APP_LOGIN_API
+const apiUrl = IP + PORT + APP_SERVICE + AUTHENTICATE;
 
 const headers = { 'Content-Type': defaultContentType };
 
@@ -14,7 +13,6 @@ export const authenticateUser = (requestParams) => {
       axios
         .post(apiUrl, JSON.stringify(requestParams), { headers })
         .then((results) => {
-          console.log(results.data, 'api')
           const resultData = results && results.data ? results.data : false;
           if (resultData && !resultData.results.response) {
             let obj = { status: 200, response: resultData };
@@ -34,7 +32,3 @@ export const authenticateUser = (requestParams) => {
   export const LoginService = {
     authenticateUser,
   };
-
-
-
-

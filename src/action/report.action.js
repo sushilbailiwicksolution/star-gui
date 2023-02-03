@@ -4,6 +4,7 @@ import {
   IP,
   PORT_8080,
   PORT_8082,
+  PORT,
   GET_REPORT,
   GET_REPORT_ENG_MAINTAINANCE,
   GET_REPORT_ENG_CONDITION,
@@ -15,7 +16,8 @@ import {
 } from '../Config/siteConfig';
 import REPORTDATA from '../store/reportSampleJson.json';
 
-const URL = IP + PORT_8082;
+//const URL = IP + PORT_8082;
+const URL = IP + PORT;
 
 export const reportActions = {
   getReportEngineMaintainance,

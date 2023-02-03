@@ -7,12 +7,12 @@ function Header(props: any) {
     try {
       const element = document.getElementById('root');
       element?.addEventListener('click', bodyClick);
-    } catch (err1) {}
+    } catch (err1) { }
     return () => {
       try {
         const element = document.getElementById('root');
         element?.removeEventListener('click', bodyClick);
-      } catch (err1) {}
+      } catch (err1) { }
     };
   }, []);
 
@@ -193,8 +193,12 @@ function Header(props: any) {
                           Map
                         </button>
                         {/* <button className="dropdown-item" onClick={() => { props.history.push('/map-layer') }}>KML Layer</button> */}
-                        <button className='dropdown-item'>Assets list</button>
-                        <button className='dropdown-item'>Events</button>
+                        <button className='dropdown-item' onClick={() => {
+                          props.history.push('/view/assetList');
+                        }}>Assets list</button>
+                        <button className='dropdown-item' onClick={() => {
+                          props.history.push('/view/events');
+                        }}>Events</button>
                       </div>
                     </div>
                   </li>

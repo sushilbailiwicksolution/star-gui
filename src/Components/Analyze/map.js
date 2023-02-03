@@ -558,6 +558,7 @@ export class MapContainer extends Component {
           onReady={(mapProps, map) => this._mapLoaded(mapProps, map)}
           onZoomChanged={this._handleZoomChanged.bind(this)}
           ref={this.googleMap}
+          gestureHandling='greedy'
           // onCenterChanged={this._handleCenterChanged.bind(this)}
         >
           {/* {this.state.displayMarkers}

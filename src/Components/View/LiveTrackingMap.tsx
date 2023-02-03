@@ -6,7 +6,7 @@ import { ViewsConstants } from "../../Constants/constants";
 import { getAirCraft, getAirCraftDetails } from "../../Service";
 import { assetService } from "../../Service/asset.service";
 import './view.css';
-let interval;
+const AirCraftDetailInterval = 15000;
 const LiveTrackingMap = () => {
 
     const [selectedTab, setSelectedTab] = useState(1);
@@ -90,12 +90,12 @@ const LiveTrackingMap = () => {
 
     const getAirCraftDetailsData = async (selectedFlight: any) => {
         getAirCraftDetailsAPI(selectedFlight);
-        if(intervalState){
+        if (intervalState) {
             clearInterval(intervalState);
         }
         const interval = setInterval(() => {
             getAirCraftDetailsAPI(selectedFlight);
-        }, 30000);
+        }, AirCraftDetailInterval);
         setIntervalState(interval);
     }
 
@@ -103,14 +103,36 @@ const LiveTrackingMap = () => {
 
         try {
             const airCraftDetails = await getAirCraftDetails(selectedFlight);
-            const airCrafts = [] as any;
-            for (let k in airCraftDetails) {
-                airCrafts.push(airCraftDetails[k]);
+            let airCrafts = [] as any;
+            const fuelDetails = {
+                fuel: 0,
+                airSpeed: 0,
+                groundSpeed: 0
+            }
+            
+            // for (let k in airCraftDetails) {
+            //     airCrafts.push(airCraftDetails[k]);
+            // }
+            if (airCraftDetails.flightData) {
+                airCrafts = airCraftDetails.flightData;
+            } else {
+                airCrafts = [];
             }
             console.log('airCraftDetails', airCrafts);
+            
             dispatch({
                 type: ViewsConstants.FLIGHT_LIST_DATA,
                 value: airCrafts,
+            });
+
+            if(airCraftDetails.data){
+                fuelDetails.fuel = airCraftDetails.data.fuel ? airCraftDetails.data.fuel : 0;
+                fuelDetails.airSpeed = airCraftDetails.data.air_speed ? airCraftDetails.data.air_speed : 0;
+                fuelDetails.groundSpeed = airCraftDetails.data.ground_speed ? airCraftDetails.data.ground_speed : 0;
+            }
+            dispatch({
+                type: ViewsConstants.VIEW_FLIGHT_SPEED_DETAILS,
+                value: fuelDetails,
             });
             setLoader(false);
         } catch (error) {

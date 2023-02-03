@@ -10,10 +10,7 @@ function ForgotPassword(props:any) {
 
     const sendLink = async() => {
         return false;
-        // Incomplete code 
-        // validateUser doesn't have anything 
         const validate = await validateUser();
-        // this will always be false as validateUser() is incomplete 
         if(validate) {
             if(inputUsers.userName === USERNAME && inputUsers.userPwd === USERPASSWORD) {
                 updateUsersValues({
